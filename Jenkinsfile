@@ -46,5 +46,13 @@ pipeline
                 sh 'docker push 149536451818.dkr.ecr.ap-south-1.amazonaws.com/maven-web-application:${buildNumber}'
             }
         }
+
+        stage('Remove Docker Image from Jenkins Server')
+        {
+            steps()
+            {
+                sh 'docker rmi 149536451818.dkr.ecr.ap-south-1.amazonaws.com/maven-web-application:${buildNumber}'
+            }
+        }
     }
 }
